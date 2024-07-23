@@ -1,0 +1,34 @@
+// USED FOR LARGER VALUES LIKE 10^9
+
+import java.util.*;
+
+public class hashmap1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+
+        HashMap<Integer,Integer> mp = new HashMap<>();       //<Integer,Integer> --> <key,value>
+        for(int i=0;i<n;i++){
+            int key = a[i];
+            int freq = mp.getOrDefault(key,0);               //if key already in hashmap then increment freq , if not present then initialize freq to 0
+            freq++;
+            mp.put(key,freq);                                //adding key and freq to map
+        }
+
+        int b = sc.nextInt();                                //how many numbers do u want to check if they are present in arr or not
+        while(b>0){
+            int c = sc.nextInt();                            // takes single inetegr from user
+            if(mp.containsKey(c)){                           // if map contains the key then
+                System.out.println(mp.get(c));               // print the value present in map that is assigned for the key
+            }
+            else{
+                System.out.println(0);
+            }
+            b--;
+        }
+    }
+}
