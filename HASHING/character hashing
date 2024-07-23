@@ -1,0 +1,21 @@
+//if string is in lower case
+
+import java.util.*;
+
+public class charhashing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();                      //let string is fbdcssf
+
+        int hash[] = new int[26];
+        for(int i=0;i<s.length();i++){
+            hash[s.charAt(i) - 'a']+=1;           //s.charAt(0)--> f=102  102 - 97('a'=97) = 5 -->hash[5]=1
+        }
+        int n = sc.nextInt();                     //n refer to no of letters to be checked how many times they are repeated
+        while(n>0){
+            char b = sc.next().charAt(0);          //b refer to a single letter from user 
+            System.out.println(hash[b - 'a']);    // if   b=f then hash[b - 'a'] = 102-97 = 5 hash[5] = 2
+            n--;
+        }
+    }
+}
