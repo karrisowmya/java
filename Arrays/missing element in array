@@ -1,0 +1,21 @@
+import java.util.*;
+public class missingArr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int arr[] = new int[n-1];
+        int s1 =0;
+        for(int i=0;i<n-1; i++){
+            arr[i] = sc.nextInt();
+            s1 = s1+arr[i];
+        }
+        int s2=n*(n+1)/2;
+        int d=0;
+        if(s1<s2){
+            d = s2-s1;
+        }
+        System.out.println(d);
+
+    }
+}
