@@ -1,0 +1,25 @@
+//Find Subarray with given Sum from Array of non-negative Numbers
+
+import java.util.*;
+public class sumsubArr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int sum=0;
+        if(n1>n || n2>n || n2<n1){
+            System.out.println("out of bound index");
+        }
+        else{
+            for(int i = n1;i<=n2;i++){
+                sum = sum+arr[i];
+            }
+        }
+        System.out.println(sum);
+    }
+}
