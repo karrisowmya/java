@@ -1,0 +1,47 @@
+/*
+Input:
+"Chennai" -> "Banglore"
+"Bombay" -> "Delhi"
+"Goa"    -> "Chennai"
+"Delhi"  -> "Goa"
+
+Output: 
+Bombay->Delhi, Delhi->Goa, Goa->Chennai, Chennai->Banglore,
+
+*/
+
+
+
+import java.util.*;
+public class itineraryhashing {
+    public static void main(String[] args) {
+        HashMap<String,String> m = new HashMap<>();
+        m.put("chennai","banglore");
+        m.put("bombay","delhi");
+        m.put("goa","chennai");
+        m.put("delhi","goa");
+        result(m);
+    }
+    public static void result(HashMap<String,String>m){
+        HashMap<String,String> r = new HashMap<>();
+        for(HashMap.Entry<String,String> entry : m.entrySet()){
+            r.put(entry.getValue(),entry.getKey());
+        }
+        String start = null;
+        for(HashMap.Entry<String,String> entry : m.entrySet()){
+            if(!r.containsKey(entry.getKey())){
+                start = entry.getKey();
+                break;
+            }
+        }
+        if(start == null){
+            System.out.println("invalid");
+        }
+        String to = m.get(start);
+        while(to!=null){
+            System.out.println(start+" -> "+to);
+            start = to;
+            to = m.get(to);
+        }
+    }
+}
