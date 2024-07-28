@@ -1,0 +1,37 @@
+//USING BINARY SEARCH , CONDITION: ARRAY IS ALREADY SORTED, IF NOT SORTED SORT THE ARRAY
+
+import java.util.*;
+public class targetele{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
+        int mid = n/2;
+        
+        //Arrays.sort(a);    // to sort array if not sorted
+
+        if(a[mid]==target){
+            System.out.println(target+" found at index "+mid);
+        }
+        else if(a[mid]>target){
+            for(int i=0;i<mid;i++){
+                if(target == a[i]){
+                    System.out.println(target+" found at index "+i);
+                    break;
+                }
+            }
+        }
+        else{
+            for(int i=mid+1;i<n;i++){
+                if(target == a[i]){
+                    System.out.println(target+" found at index "+i);
+                    break;
+                }
+            }
+        }
+    }
+}
