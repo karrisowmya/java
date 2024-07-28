@@ -1,5 +1,6 @@
 //USING BINARY SEARCH , CONDITION: ARRAY IS ALREADY SORTED, IF NOT SORTED SORT THE ARRAY
 
+
 import java.util.*;
 public class targetele{
     public static void main(String[] args) {
@@ -10,28 +11,28 @@ public class targetele{
             a[i] = sc.nextInt();
         }
         int target = sc.nextInt();
-        int mid = n/2;
-        
-        //Arrays.sort(a);    // to sort array if not sorted
-
-        if(a[mid]==target){
-            System.out.println(target+" found at index "+mid);
-        }
-        else if(a[mid]>target){
-            for(int i=0;i<mid;i++){
-                if(target == a[i]){
-                    System.out.println(target+" found at index "+i);
-                    break;
-                }
-            }
+        int p = targetele(a,target);
+        if(p == -1){
+            System.out.println(target+" not found");
         }
         else{
-            for(int i=mid+1;i<n;i++){
-                if(target == a[i]){
-                    System.out.println(target+" found at index "+i);
-                    break;
-                }
+            System.out.println(target+" found at index "+p);
+        }
+    }
+    public static int targetele(int a[],int target){
+        int mid,l=0,r=a.length-1;
+        while(l<=r){
+            mid = l+(r-l)/2;
+            if(a[mid] == target){
+                return mid;
+            }
+            else if(a[mid]>target){
+                r = mid-1;
+            }
+            else{
+                l=mid+1;
             }
         }
+        return -1;
     }
 }
