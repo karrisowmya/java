@@ -1,0 +1,14 @@
+import java.util.*;
+public class reversestring {
+    public static void reverse(String s){
+        String arr[] = s.split(" ");
+        Collections.reverse(Arrays.asList(arr));
+        System.out.print(String.join(" ",arr));
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        reverse(s);
+    }
+       
+}
