@@ -4,6 +4,13 @@ public class reversestring {
         String arr[] = s.split(" ");
         Collections.reverse(Arrays.asList(arr));
         System.out.print(String.join(" ",arr));
+        String a[] = s.split(" ");
+        for(int i=0;i<a.length;i++){
+            a[i] = new StringBuilder(a[i]).reverse().toString();
+        }
+        Collections.reverse(Arrays.asList(a));
+        System.out.print(String.join(" ",a));
+
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
