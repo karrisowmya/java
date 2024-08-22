@@ -1,0 +1,28 @@
+import java.util.*;
+public class divisibleby7 {
+    public static void divisible(int n){
+        int temp = n,rem = 0;
+        while(temp>-1){
+            if(temp<10){
+                if(temp == 0 || temp == 7){
+                    System.out.println("divisible");
+                    break;
+                }
+                else{
+                    System.out.println("not divisible");
+                    break;
+                }
+            }
+            rem = temp % 10;
+            temp = temp/10 - (2*rem);
+            if(temp<0){
+                temp = -1*temp;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        divisible(n);
+    }
+}
